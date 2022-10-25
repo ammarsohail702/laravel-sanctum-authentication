@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\RegisterController;
+use App\Http\Controllers\API\CollabController;
+use App\Http\Controllers\API\LobbyVideoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,6 +22,8 @@ Route::post('login', [RegisterController::class,'login'])->name('login');
 
 Route::middleware('auth:sanctum','verified')->group( function() {
 
+    Route::post('submit_collab_form', [CollabController::class,'create'])->name('doCollab');
+    Route::post('submit_lobby_form', [LobbyVideoController::class,'create'])->name('doLobbyVideo');
 
 });
 
